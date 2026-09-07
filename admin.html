@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrador</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <header id="header"></header>
+    <main class="reserva-main">
+        <section class="formulario-seccion">
+            <h2>Panel de Administrador - Cambiar Precios</h2>
+            <form action="#" class="form-reserva">
+                <div class="campo">
+                    <label for="precioPelo">Precio Corte de Pelo ($)</label>
+                    <input type="number" id="precioPelo" placeholder="Ej: 10000" required>
+                </div>
+                <div class="campo">
+                    <label for="precioBarba">Precio Corte de Pelo + Barba ($)</label>
+                    <input type="number" id="precioBarba" placeholder="Ej: 15000" required>
+                </div>
+                <button type="button" class="btn-confirmar" onclick="guardarPrecios(event)">GUARDAR NUEVOS PRECIOS</button>
+            </form>
+        </section>
+    </main>
+    <footer id="footer"></footer>
+    <script src="js/metodos.js"></script>
+</body>
+</html>

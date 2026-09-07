@@ -3,35 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de sesion</title>
+    <title>Inicio de sesión y Registro</title>
     <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body class="login-cuerpo">
     <header id="header"></header>
     <main class="login-main">
-        <div class="formulario-login">
+        
+        <div class="formulario-login" id="formLoginBox">
             <img src="imagenes/WhatsApp-Image-2026-09-02-at-5.39.25-PM-_3_.webp" alt="">
-            <h2>Inicio de sesion</h2>
-                <form action="#" method="POST">
-                    <div class="login-campo">
-                        <label for="email">Correo Electronico o Usuario</label>        
-                        <input type="text" id="email" name="email" placeholder="Email or username">
-                    </div>
-                    <div class="login-campo">
-                        <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password" placeholder="Password">
-                    </div>
-                    <div class="opciones-login">
-                        <a href="#" class="contraseña">¿Olvidaste tu contraseña?</a>
-                    </div>
-                    <button type="submit" class="btn-login">Iniciar sesion</button>
-                </form>
-                <p class="registro-login">
-                    ¿No tienes cuenta? <a href="#">Registrate</a>
-                </p>    
+            <h2>Inicio de sesión</h2>
+            <form action="#">
+                <div class="login-campo">
+                    <label for="loginEmail">Correo Electrónico o Usuario</label>        
+                    <input type="text" id="loginEmail" placeholder="Email o nombre de usuario" required>
+                </div>
+                <div class="login-campo">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                </div>
+                <div class="opciones-login">
+                    <a href="#" class="contraseña">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <button type="button" class="btn-login" onclick="iniciarSesion(event)">Iniciar sesión</button>
+            </form>
+            <p class="registro-login" style="margin-top: 15px;">
+                ¿No tienes cuenta? <a href="#" onclick="mostrarRegistro()">Regístrate</a>
+            </p>  
         </div>
+            
+        <div class="formulario-login" id="formRegistroBox" style="display: none;">
+            <img src="imagenes/WhatsApp-Image-2026-09-02-at-5.39.25-PM-_3_.webp" alt="">
+            <h2>Crear Cuenta</h2>
+            <form action="#">
+                <div class="login-campo">
+                    <label for="regEmail">Correo Electrónico *</label>        
+                    <input type="email" id="regEmail" placeholder="ejemplo@correo.com" required>
+                </div>
+                <div class="login-campo">
+                    <label for="regUser">Nombre de Usuario *</label>        
+                    <input type="text" id="regUser" placeholder="Tu usuario" required>
+                </div>
+                <div class="login-campo">
+                    <label for="regFecha">Fecha de Nacimiento (Opcional)</label>       
+                    <input type="text" id="regFecha" placeholder="DD-MM-AAAA">
+                </div>
+                <div class="login-campo">
+                    <label for="regPassword">Contraseña *</label>
+                    <input type="password" id="regPassword" placeholder="Contraseña" required>
+                </div>
+                <div class="login-campo">
+                    <label for="regConfirmPassword">Confirmar Contraseña *</label>
+                    <input type="password" id="regConfirmPassword" placeholder="Repite tu contraseña" required>
+                </div>
+                
+                <button type="button" class="btn-login" style="margin-top: 10px;" onclick="registrarUsuario(event)">Registrarse</button>
+            </form>
+            <p class="registro-login" style="margin-top: 15px;">
+                ¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin()">Inicia sesión</a>
+            </p>  
+        </div>
+
     </main>
     <footer id="footer"></footer>
+    <script src="js/metodos.js"></script>
 </body>
-<script src="js/metodos.js"></script>
 </html>
