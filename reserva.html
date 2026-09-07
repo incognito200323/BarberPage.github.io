@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserva de Horas</title>
+  <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+  <header id="header"></header>
+  <main class="reserva-main">
+    <section class="formulario-seccion">
+      <h2>Reserva de horas</h2>
+      <form action="#" method="POST" class="form-reserva">
+
+        <div class="campo">
+          <label for="nombre">NOMBRE COMPLETO</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+        </div>
+
+        <div class="campo">
+          <label for="telefono">NÚMERO DE TELÉFONO</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+56 9 1234 5678" required>
+        </div>
+        <div class="campo">
+          <label for="servicio">SERVICIO</label>
+          <select id="servicio" name="servicio" required>
+            <option value="" disabled selected>Seleccioná un servicio</option>
+            <option value="corte">Corte de Pelo</option>
+            <option value="corte-barba">Corte de Pelo + Barba</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="fecha">FECHA DE RESERVA</label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+        <div class="campo">
+         <label for="comentarios">COMENTARIOS EXTRAS</label>
+          <textarea id="comentarios" name="comentarios" rows="3" placeholder="detalles adicionales..."></textarea>
+        </div>
+        <button type="submit" class="btn-confirmar">CONFIRMAR RESERVA</button>
+      </form>
+    </section>
+  </main>
+      <footer id="footer"></footer>
+</body>
+<script src="js/metodos.js"></script>
+</html>

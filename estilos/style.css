@@ -1,0 +1,262 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+
+header{
+    max-width: 1200px;
+    width: 90%;
+    margin: 20px auto;
+    padding: 0 2rem;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #cec8c8;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.cuerpo-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 2rem;
+}
+header a{
+    text-decoration: none;
+    color: #000;
+}
+
+header a:hover{
+    color: darkgoldenrod;
+}
+
+.nav-header{
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.titulo{
+    color: #000;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.imagen-main{
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 12px; 
+    object-fit: cover;
+}
+
+.imagen-contenedor{
+    max-width: 50%;
+}
+
+h1{
+    font-family:serif
+}
+
+footer{
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+.galeria-fotos{
+    max-width: 1200px;
+    width: 90%;
+    gap: 30px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.galeria-fotos img{
+    width: 200px;
+    height: 250px;
+    border-radius: 8px;
+    border: 1px solid;
+    object-fit: cover;
+}
+
+.galeria-fotos p{
+  font-size: large;
+  margin-bottom: 20px;   
+}
+
+.reserva-main{
+    display: flex;
+    align-items: center; /* centra el cuadro gris a lo alto */
+    justify-content: center; /* Ancho*/
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.campo label{
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.formulario-seccion{
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 480px; /* tamaño recuadro gris */
+    width: 90%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+}
+
+.formulario-seccion h2{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    color: darkgoldenrod;
+    font-size: 1.8rem;
+}
+
+.btn-confirmar:hover{
+    background-color: darkgoldenrod;
+}
+
+.btn-confirmar{
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.login-cuerpo {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    color: #fff;
+}
+
+/* Fuerza al header inyectado a ocupar todo el ancho */
+#header {
+    width: 100%;
+}
+
+
+.login-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    padding: 20px 0;
+}
+
+.formulario-login {
+    background-color: #161616;
+    padding: 40px 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.formulario-login img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.formulario-login h2 {
+    color: darkgoldenrod;
+    margin: 15px 0;
+}
+
+.login-campo {
+    text-align: left;
+    margin-bottom: 12px;
+}
+
+.login-campo label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+}
+
+.login-campo input {
+    width: 100%;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 6px;
+    color: #fff;
+    border: 1px solid #444;
+    box-sizing: border-box;
+}
+
+.opciones-login {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+.contraseña {
+    color: #aaa;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+.contraseña:hover {
+    color: darkgoldenrod;
+    text-decoration: underline;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: darkgoldenrod;
+    border: none;
+    border-radius: 26px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.registro-login {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    color: #888;
+}
+
+.registro-login a {
+    color: darkgoldenrod;
+    text-decoration: none;
+}
+
+.registro-login a:hover {
+    text-decoration: underline;
+}
