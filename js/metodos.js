@@ -19,7 +19,7 @@ const headerElem = document.getElementById("header");
     if (!headerElem) return;
 
     const usuarioActual = localStorage.getItem("usuarioActual");
-    let navHTML = `<a href='Index.html' class='nav-inicio'>Inicio</a>`;
+    let navHTML = `<a href='index.html' class='nav-inicio'>Inicio</a>`;
     if (usuarioActual === "admin") {
         navHTML += `<div><a href='admin.html' class='btn-header'>Panel Admin</a></div>`;
     } else {
@@ -42,7 +42,7 @@ function iniciarSesion(event) {
     if (userInput === "admin" && passInput === "1234") {
         localStorage.setItem("usuarioActual", "admin");
         alert("Bienvenido Administrador");
-        return verificarReservaPendiente("Index.html");
+        return verificarReservaPendiente("index.html");
     }
 
     const usuarios = JSON.parse(localStorage.getItem("usuariosRegistrados")) || [];
@@ -58,7 +58,7 @@ function iniciarSesion(event) {
     if (encontrado) {
         localStorage.setItem("usuarioActual", userInput);
         alert("Sesión iniciada con éxito");
-        verificarReservaPendiente("Index.html");
+        verificarReservaPendiente("index.html");
     } else {
         alert("Error: El usuario o la contraseña son incorrectos.");
     }
@@ -90,14 +90,14 @@ function registrarUsuario(event) {
     localStorage.setItem("usuarioActual", regUser);
 
     alert("¡Cuenta creada con éxito!");
-    verificarReservaPendiente("Index.html");
+    verificarReservaPendiente("index.html");
 }
 
 function verificarReservaPendiente(destinoPorDefecto) {
     if (localStorage.getItem("reservaPendiente") === "true") {
         localStorage.removeItem("reservaPendiente");
         alert("Su cita ha sido realizada");
-        window.location.href = "Index.html";
+        window.location.href = "index.html";
     } else {
         window.location.href = destinoPorDefecto;
     }
@@ -112,14 +112,14 @@ function procesarReserva(event) {
         window.location.href = "inicio_sesion.html";
     } else {
         alert("Su cita ha sido realizada");
-        window.location.href = "Index.html";
+        window.location.href = "index.html";
     }
 }
 
 function cerrarSesion() {
     localStorage.removeItem("usuarioActual");
     alert("Has cerrado sesión.");
-    window.location.href = "Index.html";
+    window.location.href = "index.html";
 }
 
 function guardarPrecios(event) {
