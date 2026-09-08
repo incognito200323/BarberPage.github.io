@@ -5,7 +5,6 @@ body{
     margin: 0;
 }
 
-
 header{
     max-width: 1200px;
     width: 90%;
@@ -29,6 +28,7 @@ header{
     margin: 40px auto;
     padding: 0 2rem;
 }
+
 header a{
     text-decoration: none;
     color: #000;
@@ -49,6 +49,7 @@ header a:hover{
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
 }
+
 .imagen-main{
     width: 100%;
     max-width: 700px;
@@ -74,31 +75,78 @@ footer{
     margin-top: auto;
 }
 
+/* --- GALERÍA DE FOTOS INTERACTIVA --- */
 .galeria-fotos{
     max-width: 1200px;
     width: 90%;
-    gap: 30px;
     margin: 40px auto;
     text-align: center;
 }
 
-.galeria-fotos img{
-    width: 200px;
-    height: 250px;
-    border-radius: 8px;
-    border: 1px solid;
-    object-fit: cover;
+.galeria-fotos p{
+    font-size: large;
+    margin-bottom: 20px;   
 }
 
-.galeria-fotos p{
-  font-size: large;
-  margin-bottom: 20px;   
+.contenedor-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
+
+.tarjeta-servicio {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.img-servicio {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.info-servicio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.info-servicio p {
+    color: darkgoldenrod;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.tarjeta-servicio:hover .img-servicio {
+    transform: scale(1.15);
+}
+
+.tarjeta-servicio:hover .info-servicio {
+    opacity: 1;
+}
+/* ------------------------------------ */
 
 .reserva-main{
     display: flex;
-    align-items: center; /* centra el cuadro gris a lo alto */
-    justify-content: center; /* Ancho*/
+    align-items: center;
+    justify-content: center;
     padding: 40px 20px;
     box-sizing: border-box;
 }
@@ -121,7 +169,7 @@ footer{
     color: #ffffff;
     border-radius: 12px;
     padding: 40px;
-    max-width: 480px; /* tamaño recuadro gris */
+    max-width: 480px;
     width: 90%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border: 1px solid #333;
@@ -145,7 +193,6 @@ footer{
     padding: 10px 20px;
     border-radius: 8px;
     font-family: 'Times New Roman', Times, serif;
-
 }
 
 .login-cuerpo {
@@ -159,11 +206,9 @@ footer{
     color: #fff;
 }
 
-/* Fuerza al header inyectado a ocupar todo el ancho */
 #header {
     width: 100%;
 }
-
 
 .login-main {
     display: flex;
@@ -259,4 +304,50 @@ footer{
 
 .registro-login a:hover {
     text-decoration: underline;
+}
+
+@media(max-width: 768px){
+    header{
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .nav-header{    
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .titulo{    
+        font-size: 24px;
+    }
+
+    .cuerpo-main{    
+        flex-direction: column;
+        text-align: center;
+        padding: 0.1rem;
+    }
+
+    .imagen-contenedor{
+        max-width: 100%;
+    }
+
+    /* Ajustes móviles para la nueva galería interactiva */
+    .contenedor-galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tarjeta-servicio {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 1 / 1; /* Mantiene la proporción cuadrada */
+    }
+
+    .formulario-seccion,
+    .formulario-login{
+        padding: 30px 20px;
+    }
 }

@@ -15,22 +15,21 @@ function inyectarFooter() {
 }
 
 function inyectarHeader() {
-    const headerElem = document.getElementById("header");
+const headerElem = document.getElementById("header");
     if (!headerElem) return;
 
     const usuarioActual = localStorage.getItem("usuarioActual");
-    let navHTML = `
-        <a href='Index.html' class='nav-inicio'>Inicio</a>
-        <div><a href='reserva.html' class='btn-header'>Reserva Tu hora</a></div>`;
-
-    if (usuarioActual === "admin") navHTML += `<a href='admin.html'>Admin</a>`;
-    
+    let navHTML = `<a href='Index.html' class='nav-inicio'>Inicio</a>`;
+    if (usuarioActual === "admin") {
+        navHTML += `<div><a href='admin.html' class='btn-header'>Panel Admin</a></div>`;
+    } else {
+        navHTML += `<div><a href='reserva.html' class='btn-header'>Reserva Tu hora</a></div>`;
+    }
     if (usuarioActual) {
         navHTML += `<a href='#' onclick='cerrarSesion()'>Cerrar Sesión</a>`;
     } else {
         navHTML += `<a href='inicio_sesion.html'>Inicio de sesión</a>`;
     }
-
     headerElem.innerHTML = `<div class='titulo'>Glow Up</div><nav class='nav-header'>${navHTML}</nav>`;
 }
 
@@ -86,7 +85,6 @@ function registrarUsuario(event) {
         if (u.username.toLowerCase() === regUser.toLowerCase()) return alert("Error: El nombre de usuario ya está en uso.");
     }
 
-    // Guardamos directamente el objeto
     usuarios.push({ email: regEmail, username: regUser, fechaNacimiento: regFecha, password: regPass });
     localStorage.setItem("usuariosRegistrados", JSON.stringify(usuarios));
     localStorage.setItem("usuarioActual", regUser);
@@ -141,12 +139,20 @@ function guardarPrecios(event) {
 
 function cargarPrecios() {
     const selectServicio = document.getElementById("servicio");
-    const pPelo = localStorage.getItem("precioPelo");
-    const pBarba = localStorage.getItem("precioBarba");
+    const pPelo = localStorage.getItem("precioPelo") || "10000";
+    const pBarba = localStorage.getItem("precioBarba") || "15000";
 
     if (selectServicio) {
-        selectServicio.options[1].text = `Corte de Pelo - $${pPelo}`;
-        selectServicio.options[2].text = `Corte de Pelo + Barba - $${pBarba}`;
+        selectServicio.innerHTML = '<option value="" disabled selected>Seleccioná un servicio</option>';
+
+        selectServicio.options.add(new Option(`Corte de Pelo - $${pPelo}`, "corte"));
+        selectServicio.options.add(new Option(`Corte de Pelo + Barba - $${pBarba}`, "corte-barba"));
+
+        const serviciosExtra = JSON.parse(localStorage.getItem("serviciosExtra")) || [];
+        for (let servicio of serviciosExtra) {
+            const nuevaOpcion = new Option(`${servicio.nombre} - $${servicio.precio}`, servicio.nombre);
+            selectServicio.options.add(nuevaOpcion);
+        }
     }
 
     const inputPelo = document.getElementById("precioPelo");
@@ -157,6 +163,8 @@ function cargarPrecios() {
     }
 }
 
+document.addEventListener("DOMContentLoaded", cargarPrecios);
+
 function mostrarRegistro() {
     document.getElementById("formLoginBox").style.display = "none";
     document.getElementById("formRegistroBox").style.display = "block";
@@ -165,6 +173,30 @@ function mostrarRegistro() {
 function mostrarLogin() {
     document.getElementById("formRegistroBox").style.display = "none";
     document.getElementById("formLoginBox").style.display = "block";
+}
+
+function agregarServicio(event) {
+    if (event) event.preventDefault();
+
+    const nombreServicio = document.getElementById("nombreServicio").value.trim();
+    const precioServicio = document.getElementById("descripcionServicio").value.trim();
+
+    if (!nombreServicio || !precioServicio) {
+        return alert("Por favor, ingresa el nombre y el precio del servicio.");
+    }
+
+    // Obtener la lista guardada o crear una nueva
+    const serviciosExtra = JSON.parse(localStorage.getItem("serviciosExtra")) || [];
+    
+    // Guardar el nuevo servicio
+    serviciosExtra.push({ nombre: nombreServicio, precio: precioServicio });
+    localStorage.setItem("serviciosExtra", JSON.stringify(serviciosExtra));
+
+    alert(`Servicio "${nombreServicio}" agregado exitosamente por $${precioServicio}.`);
+    
+    // Limpiar los campos después de guardar
+    document.getElementById("nombreServicio").value = "";
+    document.getElementById("descripcionServicio").value = "";
 }
 
 // Ejecución inicial
